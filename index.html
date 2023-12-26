@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>MediCare Health Systems</title>
+  </head>
+  <body>
+    <div class="dashboard">
+      <header>
+        <h1>MediCare Health Systems</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#reservation">Reservation</a></li>
+          <li><a href="#patient">Patient Information</a></li>
+        </ul>
+      </nav>
+      <main>
+        <section class="upcoming-appointments">
+          <h2>Upcoming Appointments</h2>
+        </section>
+        <section class="available-facilities">
+          <h2>Available Facilities</h2>
+        </section>
+        <section class="recent-activity">
+          <h2>Recent Activity</h2>
+        </section>
+      </main>
+    </div>
+
+    <div class="reservation-form" id="reservation">
+      <header>
+        <h1>Make a Reservation</h1>
+      </header>
+      <main>
+        <form id="reservationForm" action="#" method="post">
+          <label for="patientName">Your Name:</label>
+          <input type="text" id="patientName" name="patientName" required />
+
+          <label for="appointmentDate">Preferred Date:</label>
+          <input
+            type="date"
+            id="appointmentDate"
+            name="appointmentDate"
+            required
+          />
+
+          <label for="doctorSelection">Select a Doctor:</label>
+          <select id="doctorSelection" name="doctorSelection" required>
+            <option value="doc1">Dr. Somaya - Cardiologist</option>
+            <option value="doc2">Dr. Somaya again :) - Data-Base</option>
+          </select>
+
+          <button type="submit">Confirm Reservation</button>
+        </form>
+
+        <div id="displayInfo">
+          <h2>Reservation Details</h2>
+          <p>
+            <strong>Patient Name:</strong> <span id="displayPatientName"></span>
+          </p>
+          <p>
+            <strong>Appointment Date:</strong>
+            <span id="displayAppointmentDate"></span>
+          </p>
+          <p>
+            <strong>Selected Doctor:</strong>
+            <span id="displaySelectedDoctor"></span>
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      window.onload = function () {
+        alert(
+          "Welcome to MediCare Health Systems!\nThis Project made by Hassan Alkadri \nFeel free to contact me at\nxd1m@yahoo.com"
+        );
+      };
+
+      document
+        .getElementById("reservationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var patientName = document.getElementById("patientName").value;
+          var appointmentDate =
+            document.getElementById("appointmentDate").value;
+          var selectedDoctor =
+            document.getElementById("doctorSelection").options[
+              document.getElementById("doctorSelection").selectedIndex
+            ].text;
+
+          document.getElementById("displayPatientName").innerText = patientName;
+          document.getElementById("displayAppointmentDate").innerText =
+            appointmentDate;
+          document.getElementById("displaySelectedDoctor").innerText =
+            selectedDoctor;
+        });
+    </script>
+  </body>
+</html>
